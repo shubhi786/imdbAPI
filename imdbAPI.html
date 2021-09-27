@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin:0px;
+            padding:0px;
+        }
+
+        body {
+            text-align:center;
+        }
+
+        .search {
+            width: 100%;
+            background-color:cornsilk;
+            display: flex;
+            justify-content: center;
+            margin-bottom:50px;
+        }
+
+        
+        .parent {
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            /* background-color: green; */
+            padding:10px;
+        }
+
+        .parent input {
+            width: 100%;
+            padding:10px;
+            outline: none;
+        }
+
+        .parent button {
+            width:100px;
+            background-color: transparent;
+            border:2px solid #000;  
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .showData {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .apiData {
+            display: flex;
+            flex-direction: column;
+            flex:0 0 30%;
+            margin-top: 50px;
+        }
+
+        .loader {
+            width:100px;
+            height: 100px;
+            border-radius: 50%;
+            border:2px solid red;
+            border-right-color:transparent;
+            animation:rotateLoad 1s linear infinite;
+            position: absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            margin:auto;
+            transform:translateY(-50%);
+        }
+
+        @keyframes rotateLoad {
+           from {transform: rotate(0deg);}
+           to {transform: rotate(360deg);}
+        }
+
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <div id="elemLoader" class=""></div>
+    
+   <div class="search">
+        <div class="parent">
+            <input type="text" id="movieName" />
+            <button onclick="getMovie()" class="btn">Get Movie</button>
+        </div>
+   </div>
+
+    <div class="showData"></div>
+
+    <script>
+
+        let btn = document.querySelector('.btn');
+        let elemLoader = document.querySelector('#elemLoader');
+
+        function loader () {
+            elemLoader.classList.add('loader');
+        }
+
+        function removeloader () {
+            elemLoader.classList.remove('loader');
+        }
+
+
+        window.addEventListener('keydown',(e)=>{ if(e.which == 13) { loader();  getMovie(); } });
+
+        let getMovie = ('click',()=>{
+
+            loader();
+
+        let movieName = document.querySelector('#movieName').value;
+
+        const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://imdb8.p.rapidapi.com/auto-complete?q="+movieName,
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "imdb8.p.rapidapi.com",
+		"x-rapidapi-key": "9619b61574mshc76b5fb01438a5bp1806cajsn756a71cfd529"
+	}
+};
+    
+
+
+        $.ajax(settings).done(function (response) {
+            
+            removeloader();
+	console.log(response);
+
+    let str =``;
+    console.log(response.d);
+
+    for(let prop in response.d)
+    {
+        str += 
+        `
+        <div class="apiData">
+        <div class="dataTitle">
+            <img width="200px" height="200px" src="${response.d[prop].i.imageUrl}" alt="" class="dataImg" />
+            <h1 class="titleText">${response.d[prop].l}</h1>
+        </div>
+
+        <div class="body">
+            <p class="dataDesc">Star Cast : ${response.d[prop].s}</p>
+            <p class="dataDesc"> Year : ${response.d[prop].y}</p>
+        </div>
+        </div>
+        `;
+
+        let ww = parseInt(prop) + 2;
+        
+        if( ww == response.d.length){
+            break;
+        }
+    }
+
+    $('.showData').html(str);
+});
+    });
+
+    </script>
+</body>
+</html>
