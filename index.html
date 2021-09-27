@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>json</title>
+  <style>
+    #card {
+      display: none;
+    }
+    .box {
+      height:100px;
+      background-color: #eee;
+      margin: 5px;
+      width:100px;
+    }
+    .dfdf{
+      width:100%;
+      height: 500px;
+      background-color: #000;
+    }
+    .spans:hover{
+      color:red;
+    }
+   
+    .d-block2 {
+      display:block !important;
+    }
+    .toaster{
+      animation-name: ppp;
+      animation-duration: 10s;
+    }
+    @keyframes ppp {
+      0% {opacity: 0;}
+      50% {opacity: 1;}
+      80% {opacity: 0;}
+      100%{display: none !important;}
+    }
+  </style>
+</head>
+
+<body>
+  <div style="position: fixed; top:0; right:0; left:0; z-index: 99999;" class="container bg-primary">
+    <button id="one1" onclick="scrollToItem('one', this.id)" class="btn btn-danger mt-5">one</button>
+    <button id="two2" onclick="scrollToItem('two', this.id)" class="btn btn-danger mt-5">two</button>
+    <button id="three3" onclick="scrollToItem('three', this.id)" class="btn btn-danger mt-5">three</button>
+    <button id="fourth4" onclick="scrollToItem('fourth', this.id)" class="btn btn-danger mt-5">fourth</button>
+    <button id="fifth5" onclick="scrollToItem('fifth', this.id)" class="btn btn-danger mt-5">fifth</button>
+    <button id="sixth6" onclick="scrollToItem('sixth', this.id)" class="btn btn-danger mt-5">sixth</button>
+  </div>
+
+    <div class="row dfdf mt-5 "> 
+      <div>
+        <div class="box">dfgdfg</div>
+      <div class="box">dfgdfsg</div> 
+      <div class="box">dfgdfg</div>
+      </div>
+    </div>
+  
+  <span class="spans">
+    sadangfsdf
+  </span>
+
+  <div class="container">
+    <div class="row">
+      <button id="ss" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button>
+
+      <button id="sss" type="button" class="btn btn-primary" onclick="scrollToItem('clicked')">click to go down</button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="margin-top: 500px;" class="container">
+    <div class="row">
+      <div class="col-12">
+        <button id="toasted" class="btn btn-secondary" onclick="myFunction()" >click to open toast</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="opacity:0;display:none;" id="toast" class="container mt-4">
+    <div class="row">
+      <div class="col-12">
+        <p class="bg-dark text-white p-3">Hey i am Toast i will remove after some time.</p>
+      </div>
+    </div>
+  </div>
+
+
+<div id="one" style="margin-top: 500px;" class="container bg-dark p-5">
+  <div class="row">
+    <div class="col-12">
+      <p>dfgsdfg dfgdfgsdf gdfsgsdfgdfsgdfsgdfsgsdfgsdfg sdf g dfgdfg fgdf gdfg dfg dfg df gd gg   dfgdf gdf g dfg dfg df gdf g dfg</p>
+    </div>
+  </div>
+</div>
+
+<div id="two" style="margin-top: 500px;" class="container bg-secondary p-5">
+  <div class="row">
+    <div class="col-12">
+      <p>dfgsdfg dfgdfgsdf gdfsgsdfgdfsgdfsgdfsgsdfgsdfg sdf g dfgdfg fgdf gdfg dfg dfg df gd gg   dfgdf gdf g dfg dfg df gdf g dfg</p>
+    </div>
+  </div>
+</div>
+
+<div id="three" style="margin-top: 500px;" class="container bg-primary p-5">
+  <div class="row">
+    <div class="col-12">
+      <p>dfgsdfg dfgdfgsdf gdfsgsdfgdfsgdfsgdfsgsdfgsdfg sdf g dfgdfg fgdf gdfg dfg dfg df gd gg   dfgdf gdf g dfg dfg df gdf g dfg</p>
+    </div>
+  </div>
+</div>
+
+<div id="fourth" style="margin-top: 500px;" class="container bg-warning p-5">
+  <div class="row">
+    <div class="col-12">
+      <p>dfgsdfg dfgdfgsdf gdfsgsdfgdfsgdfsgdfsgsdfgsdfg sdf g dfgdfg fgdf gdfg dfg dfg df gd gg   dfgdf gdf g dfg dfg df gdf g dfg</p>
+    </div>
+  </div>
+</div>
+
+<div id="fifth" style="margin-top: 500px;" class="container bg-success p-5">
+  <div class="row">
+    <div class="col-12">
+      <p>dfgsdfg dfgdfgsdf gdfsgsdfgdfsgdfsgdfsgsdfgsdfg sdf g dfgdfg fgdf gdfg dfg dfg df gd gg   dfgdf gdf g dfg dfg df gdf g dfg</p>
+    </div>
+  </div>
+</div>
+
+<div id="sixth" style="margin-top: 500px;" class="container bg-danger p-5">
+  <div class="row">
+    <div class="col-12">
+      <p>dfgsdfg dfgdfgsdf gdfsgsdfgdfsgdfsgdfsgsdfgsdfg sdf g dfgdfg fgdf gdfg dfg dfg df gd gg   dfgdf gdf g dfg dfg df gdf g dfg</p>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+    function myFunction() {
+      var element = document.getElementById("toast");
+      element.classList.add("d-block","toaster");
+      setTimeout(myFunction2, 10000);
+}
+
+function myFunction2() {
+  var element = document.getElementById("toast");
+  element.classList.remove("d-block","toaster");
+
+}
+
+
+
+function scrollToItem(item, id) {
+  var element_1 = document.getElementById(id);
+  var element_2 = document.getElementById(item);
+  var two = element_1.getBoundingClientRect().y;
+  var one = element_2.getBoundingClientRect().y;
+
+  console.log(element_2.getBoundingClientRect().y);
+   window.scroll(one, two);
+
+//   window.scroll({
+//   top: two,
+//   behavior: 'smooth'
+
+// });
+}
+
+
+
+
+// function myFunction1() {
+//   var element = document.getElementById("toast");
+   
+//      element.classList.remove("d-block");
+  
+// }
+
+    </script>
+
+
+
+  <!-- <div class="container">
+
+    <div id="changed"></div>
+    <button onclick="element_replace()">Try it</button>
+    <div id="result"></div>
+    <div class="row">
+      <p id="demo"></p>
+    </div>
+    <div id="card" class="row">
+      <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="dfg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!-- <script>
+    var out = "";
+    var arr = [{ "id": "10", "class": "child-of-9" }, { "id": "11", "class": "child-of-10" }];
+    var xmlhttp = new XMLHttpRequest();
+    var url = "https://jsonplaceholder.typicode.com/posts";
+
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        cardDetails(myArr);
+      }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+    function cardDetails(arr) {
+      var out = "";
+      var i;
+      for (i = 0; i < arr.length; i++) {
+        out += '<div  class="card" style="width: 18rem; margin:15px;">' +
+          '<p class="card-img-top">' + arr[i].userId + '</p>' +
+          '<div class="card-body">' +
+          '<h5 class="card-title">' + arr[i].id + '</h5>' +
+          '<p style="border:1px solid #000; padding:5px;" class="card-text">' + arr[i].title + '</p>' +
+          '<p style="border:1px solid #000; padding:5px;">' + arr[i].body + '</p>' +
+          '</div>' +
+          '</div>';
+      }
+      document.getElementById("card").innerHTML += out;
+    }
+  </script>
+
+  <script>
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+    let text = "<ul>";
+    fruits.forEach(myFunction);
+    text += "</ul>";
+
+    function myFunction(value) {
+      text += "<li>" + value + "</li>";
+    }
+
+    document.getElementById("demo").innerHTML = text;
+  </script>
+
+  <script>
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    for (var i = 0; i < arr.length; i++) {
+
+      if (arr[i] === 5) {
+        arr.splice(i, 1);
+      }
+
+    }
+    console.log(arr);
+  </script>
+  <script>
+    var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    var ar = [1, 2, 3, 4, 5, 6];
+    ar.splice(0, 2);
+    console.log(ar);
+  </script>
+
+
+  <script>
+    const fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("result").innerHTML = fruits2;
+
+    function myFunction() {
+      var ss = fruits2.includes("Kiwi")
+      if (!ss) {
+        fruits2.push("Kiwi");
+
+      } else {
+        alert("Already exists");
+      }
+      document.getElementById("result").innerHTML = fruits2;
+    }
+  </script> -->
+
+  <!-- <button id='1' onclick="getId(this)">Button 1</button>
+  <button id='2' onclick="getId(this)">Button 2</button>
+  <button id='3' onclick="getId(this)">Button 3</button> -->
+
+
+  <!-- 
+  <script>
+
+    let fruits3 = - ["Banana", "Orange", "Apple", "Mango", "asdfasdf", "sadangfsdf", "kjhkjhkh", "lkjkjkj", "someangvalue"];
+    let ss = fruits3.slice();
+    function getId(btn) {
+      
+      fruits3.forEach(function (item, index) {
+        var result = item.match(/ang/g);
+        if (result != null) {
+          if (btn.id == 1) {
+            fruits3.splice(index, 1);
+          }
+          if (btn.id == 2) {
+            fruits3[fruits3.map((x, i) => [i, x]).filter(
+              x => x[1] == fruits3[index])[0][0]] = "changed"
+          }
+        }
+        
+      });
+      if (btn.id == 3) {
+          fruits3 = ss;
+        }
+      document.getElementById("changed").innerHTML = fruits3;
+      console.log(fruits3);
+    }
+
+
+
+  </script> -->
+
+  <script>
+
+
+// $("#ss").click(function() {
+//     $('html,body').animate({
+//         scrollTop: $("#toasted").offset().top},
+//         'slow');
+// }); 
+
+
+   $( "#ss" ).click(function() {
+      $('#exampleModal').modal('show');
+});
+  </script>
+
+
+</body>
+
+</html>
